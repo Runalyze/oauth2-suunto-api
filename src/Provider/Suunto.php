@@ -6,7 +6,7 @@ use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
 
-class SuuntoApi extends AbstractProvider
+class Suunto extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
@@ -84,6 +84,11 @@ class SuuntoApi extends AbstractProvider
                 $this->clientSecret,
             ]));
         return $options;
+    }
+
+    public function getResourceOwnerDetailsUrl(AccessToken $accessToken)
+    {
+        return null;
     }
 
 

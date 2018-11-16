@@ -3,14 +3,14 @@ namespace League\OAuth2\Client\Test\Provider;
 
 use Mockery as m;
 
-class SuuntoApiTest extends \PHPUnit_Framework_TestCase
+class SuuntoTest extends \PHPUnit_Framework_TestCase
 {
     protected $provider;
     protected $apiVersion = '1';
 
     protected function setUp()
     {
-        $this->provider = new \League\OAuth2\Client\Provider\SuuntoApi(
+        $this->provider = new \League\OAuth2\Client\Provider\Suunto(
             [
                 'clientId'     => 'mock_client_id',
                 'clientSecret' => 'mock_secret',
@@ -79,9 +79,9 @@ class SuuntoApiTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($token->getResourceOwnerId());
     }
 
-    public function testSuuntoApiDomainUrls()
+    public function testSuuntoDomainUrls()
     {
-        $provider = new \League\OAuth2\Client\Provider\SuuntoApi([
+        $provider = new \League\OAuth2\Client\Provider\Suunto([
             'apiVersion' => $this->apiVersion
         ]);
 

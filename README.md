@@ -19,10 +19,10 @@ $ composer require runalyze/oauth2-suunto-api dev-master
 
 ## Usage
 
-Usage is the same as The League's OAuth client, using `\League\OAuth2\Client\Provider\SuuntoApi` as the provider.
+Usage is the same as The League's OAuth client, using `\League\OAuth2\Client\Provider\Suunto` as the provider.
 
 ``` php
-$provider = new League\OAuth2\Client\Provider\SuuntoApi([
+$provider = new League\OAuth2\Client\Provider\Suunto([
     'clientId'     => '{suunto-api-id}',
     'clientSecret' => '{suunto-api-secret}',
     'redirectUri'  => 'https://example.com/callback-url',
