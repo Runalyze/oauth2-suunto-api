@@ -13,12 +13,12 @@ class Suunto extends AbstractProvider
     /**
      * @var string
      */
-    const BASE_AUTHENTICATION_URL = 'https://apizone.suunto.com/oauth/authorize';
+    const BASE_AUTHENTICATION_URL = 'https://cloudapi.suunto.com/oauth/authorize';
 
     /**
      * @var string
      */
-    const BASE_TOKEN_URL = 'https://apizone.suunto.com/v2/oauth/token';
+    const BASE_TOKEN_URL = 'https://cloudapi.suunto.com/v2/oauth/token';
 
     /**
      * @var string
