@@ -99,7 +99,7 @@ class Suunto extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return self::BASE_AUTHENTICATION_URL . 'authorization';
+        return self::BASE_AUTHENTICATION_URL;
     }
 
     /**
