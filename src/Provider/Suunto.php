@@ -13,44 +13,17 @@ class Suunto extends AbstractProvider
     /**
      * @var string
      */
-    const BASE_AUTHENTICATION_URL = 'https://cloudapi.suunto.com/oauth/authorize';
+    const BASE_AUTHENTICATION_URL = 'https://cloudapi-oauth.suunto.com/oauth/authorize';
 
     /**
      * @var string
      */
-    const BASE_TOKEN_URL = 'https://cloudapi.suunto.com/v2/oauth/token';
+    const BASE_TOKEN_URL = 'https://cloudapi-oauth.suunto.com/oauth/token';
 
     /**
      * @var string
      */
-    protected $apiVersion = '3';
-
-    /**
-     * @var string
-     */
-    protected $apikey;
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getAccessToken($grant, array $options = [])
-    {
-        $grant = $this->verifyGrant($grant);
-
-        $params = [
-            'redirect_uri'  => $this->redirectUri,
-            'grant_type'    => 'authorization_code'
-        ];
-
-        $params   = $grant->prepareRequestParameters($params, $options);
-        $request  = $this->getAccessTokenRequest($params);
-        $response = $this->getParsedResponse($request);
-        $prepared = $this->prepareAccessTokenResponse($response);
-        $token    = $this->createAccessToken($prepared, $grant);
-
-        return $token;
-    }
+    protected $apiVersion = '1';
 
     /**
      * Returns a prepared request for requesting an access token.
@@ -65,25 +38,6 @@ class Suunto extends AbstractProvider
                 $this->clientSecret,
             ]));
         return $this->getRequest($method, $url, $options);
-    }
-
-
-
-    /**
-     * Builds request options used for requesting an access token.
-     *
-     * @param  array $params
-     * @return array
-     */
-    protected function getAccessTokenOptions(array $params)
-    {
-        $options = parent::getAccessTokenOptions($params);
-
-        $options['headers']['Authorization'] = 'Basic ' . base64_encode(implode(':', [
-                $this->clientId,
-                $this->clientSecret,
-            ]));
-        return $options;
     }
 
     public function getResourceOwnerDetailsUrl(AccessToken $accessToken)
