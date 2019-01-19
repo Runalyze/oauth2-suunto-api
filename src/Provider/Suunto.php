@@ -23,7 +23,13 @@ class Suunto extends AbstractProvider
     /**
      * @var string
      */
-    protected $apiVersion = '1';
+    const BASE_API_URL = 'https://cloudapi.suunto.com/v2';
+
+
+    /**
+     * @var string
+     */
+    protected $apiVersion = '2';
 
     /**
      * Returns a prepared request for requesting an access token.
