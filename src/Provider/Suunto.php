@@ -25,26 +25,10 @@ class Suunto extends AbstractProvider
      */
     const BASE_API_URL = 'https://cloudapi.suunto.com/v2';
 
-
     /**
      * @var string
      */
     protected $apiVersion = '2';
-
-    /**
-     * Returns a prepared request for requesting an access token.
-     *
-     * @param array $params Query string parameters
-     * @return RequestInterface
-     */
-    public function getBasicRequest($method, $url, array $options = [])
-    {
-        $options['headers']['Authorization'] = 'Basic ' . base64_encode(implode(':', [
-                $this->clientId,
-                $this->clientSecret,
-            ]));
-        return $this->getRequest($method, $url, $options);
-    }
 
     public function getResourceOwnerDetailsUrl(AccessToken $accessToken)
     {
@@ -126,7 +110,7 @@ class Suunto extends AbstractProvider
     protected function getDefaultHeaders()
     {
         return [
-            'Accept-Encoding' => 'gzip'
+            'Accept-Encoding' => 'gzip',
         ];
     }
 }
