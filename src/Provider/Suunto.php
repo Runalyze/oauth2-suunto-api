@@ -26,6 +26,11 @@ class Suunto extends AbstractProvider
     const BASE_API_URL = 'https://cloudapi.suunto.com/v2';
 
     /**
+     * @var string Key used in the access token response to identify the resource owner.
+     */
+    const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'user';
+
+    /**
      * @var string
      */
     protected $apiVersion = '2';
@@ -34,7 +39,6 @@ class Suunto extends AbstractProvider
     {
         return null;
     }
-
 
     /**
      * Get authorization url to begin OAuth flow
