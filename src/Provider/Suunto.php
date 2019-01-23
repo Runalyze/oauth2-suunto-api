@@ -35,6 +35,11 @@ class Suunto extends AbstractProvider
      */
     protected $apiVersion = '2';
 
+    /**
+     * @var string
+     */
+    protected $subscriptionKey;
+
     public function getResourceOwnerDetailsUrl(AccessToken $accessToken)
     {
         return null;
@@ -115,6 +120,7 @@ class Suunto extends AbstractProvider
     {
         return [
             'Accept-Encoding' => 'gzip',
+            'Ocp-Apim-Subscription-Key' => $this->subscriptionKey
         ];
     }
 }
