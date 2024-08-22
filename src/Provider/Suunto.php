@@ -25,6 +25,11 @@ class Suunto extends AbstractProvider
      */
     const BASE_API_URL = 'https://cloudapi.suunto.com/v2';
 
+        /**
+     * @var string
+     */
+    const BASE_API_V3_URL = 'https://cloudapi.suunto.com/v3';
+
     /**
      * @var string Key used in the access token response to identify the resource owner.
      */
